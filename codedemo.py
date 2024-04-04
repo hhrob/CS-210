@@ -98,9 +98,8 @@ def create_centroids(k: int, data: dict) -> list:
     """
     centroids = []
     centroid_count = 0
-    centroid_keys = []  # list of unique keys
+    centroid_keys = []
     while centroid_count < k:
-        # Pick a random key from the data, this will be the centroid
         rand_key = random.randint(1, len(data))
         if rand_key not in centroid_keys:
             centroids.append(data[rand_key])
@@ -141,7 +140,6 @@ def create_clusters(k: int, centroids: list, data: dict, repeats=100) -> list:
         # Calculate the new centroids
         dimensions = len(data[0])
         for cluster_index in range(k):
-            # Compute the new centroid for this cluster
             sums = [0] * dimensions
             for point in clusters[cluster_index]:  # point is a tuple
                 for index in range(dimensions):
